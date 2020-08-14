@@ -1,4 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+
+import colors from './colors';
 
 export default createGlobalStyle`
   * {
@@ -13,15 +15,15 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #f0f0f0;
+    background: ${colors.background};
     -webkit-font-smoothing: antialiased !important;
   }
 
   body, input, button {
-    color: #333;
     font-size: 16px;
-    font-family: Raleway, Arial, Helvetica, sans-serif;
     line-height: 1.5;
+    color: ${colors.fontColor};
+    font-family: Raleway, Arial, Helvetica, sans-serif;
   }
 
   button {

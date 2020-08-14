@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Global from './theme/global';
-import Main from './pages/Main';
+import { Global } from './themes/styles';
+import Routes from './routes';
 
 function App() {
   return (
     <>
       <Global />
-      <Main />
+      <Routes />
     </>
   );
 }
