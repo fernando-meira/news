@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FiSearch, FiFacebook, FiInstagram, FiLinkedin } from 'react-icons/fi';
 
+import { colors } from '../../themes/styles';
 import { Container } from './styles';
 
 const Aside = () => {
@@ -15,17 +15,17 @@ const Aside = () => {
       </div>
 
       <footer>
-        <Link to="https://www.facebook.com/lassofend/">
-          <FiFacebook />
-        </Link>
+        <a target="blank" href="https://www.facebook.com/lassofend/">
+          <FiFacebook size={32} color={colors.fontColor} />
+        </a>
 
-        <Link to="https://www.instagram.com/lassofend/?hl=pt-br">
-          <FiInstagram />
-        </Link>
+        <a target="blank" href="https://www.instagram.com/lassofend/?hl=pt-br">
+          <FiInstagram size={32} color={colors.fontColor} />
+        </a>
 
-        <Link to="https://www.linkedin.com/in/lassofend/">
-          <FiLinkedin />
-        </Link>
+        <a target="blank" href="https://www.linkedin.com/in/lassofend/">
+          <FiLinkedin size={32} color={colors.fontColor} />
+        </a>
       </footer>
     </Container>
   );

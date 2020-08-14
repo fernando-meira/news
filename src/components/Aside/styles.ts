@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { colors } from '../../themes/styles';
 
 export const Container = styled.aside`
+  position: relative;
+
   width: 20%;
   height: 100vh;
   border-right: 1px solid ${colors.gray};
@@ -34,6 +36,22 @@ export const Container = styled.aside`
 
     > svg {
       margin-right: 8px;
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    > svg {
+      background: ${colors.fontColor};
     }
   }
 `;
