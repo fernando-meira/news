@@ -5,7 +5,7 @@ import { colors } from '../../themes/styles';
 export const Container = styled.aside`
   position: relative;
 
-  width: 20%;
+  width: 100%;
   height: 100vh;
   border-right: 1px solid ${colors.gray};
 
