@@ -45,16 +45,28 @@ const Main = () => {
         <h1>Find the latest News</h1>
         <ContainerList>
           <ul>
-            <li key="{item.id}">
-              <img src="{item.imagens}" alt="{item.tipo}" />
+            <li>
+              <img
+                src="https://conteudo.imguol.com.br/c/esporte/ad/2019/08/31/reacao-de-edenilson-durante-partida-entre-internacional-e-botafogo-1567300791255_v2_615x300.jpg"
+                alt="itemImg"
+              />
 
-              <h2>"{item.titulo}"</h2>
+              <h2>
+                Boletim do Inter: Edenilson está pendurado e Guerrero desfalca o
+                ataque - UOL Esporte
+              </h2>
 
-              <p>"{item.introducao}"</p>
+              <p>
+                O Internacional tem um titular importante pendurado para o jogo
+                contra o Atlético-GO, quarta-feira, pela quarta rodada do
+                Brasileiro, no Beira-Rio. Edenilson, se receber amarelo, fica
+                fora do jogo seguinte. No DM, Paolo Guerrero é a principal
+                baixa.Pendur
+              </p>
 
               <div>
-                <p>"{item.editorias}"</p>
-                <span>"{item.data_publicacao}"</span>
+                <p>ibge</p>
+                <span>14/08/2020</span>
               </div>
             </li>
           </ul>
