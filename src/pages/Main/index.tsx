@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+import api from '../../services/api';
 import { Aside } from '../../components';
 import { Container, ContainerList } from './styles';
 
+interface News {
+  id: number;
+  tipo: string;
+  titulo: string;
+  imagens: string;
+  editorias: string;
+  introducao: string;
+  data_publicacao: string;
+}
+
 const Main = () => {
+  const [news, setNews] = useState([]);
+  console.log(news);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const { data } = await api.get('/', {
+          params: {
+            qtd: 12,
+            page: 1,
+          },
+        });
+
+        setNews(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
   return (
     <Container>
       <Aside />
@@ -12,171 +45,16 @@ const Main = () => {
         <h1>Find the latest News</h1>
         <ContainerList>
           <ul>
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
+            <li key="{item.id}">
+              <img src="{item.imagens}" alt="{item.tipo}" />
 
-              <p>descrição</p>
+              <h2>"{item.titulo}"</h2>
 
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
+              <p>"{item.introducao}"</p>
 
               <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
-              </div>
-            </li>
-
-            <li>
-              <img
-                src="https://s2.glbimg.com/nksCDlmBan7iiSCgJqZdN7A5ekc=/e.glbimg.com/og/ed/f/original/2019/10/22/6th-place_small-white-hair-spider_javier-ruperez_nikon-small-world.jpg"
-                alt="noticia"
-              />
-
-              <p>descrição</p>
-
-              <div>
-                <p>Editoriais</p>
-                <span>12/12/12</span>
+                <p>"{item.editorias}"</p>
+                <span>"{item.data_publicacao}"</span>
               </div>
             </li>
           </ul>
