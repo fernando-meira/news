@@ -1,45 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { bubble as Menu } from 'react-burger-menu';
 
-import api from '../../services/api';
-import { Aside } from '../../components';
+import { isMobile as verifyIsMobile } from '../../utils';
+
 import { Container, ContainerList } from './styles';
 
-interface News {
-  id: number;
-  tipo: string;
-  titulo: string;
-  imagens: string;
-  editorias: string;
-  introducao: string;
-  data_publicacao: string;
-}
-
 const Main = () => {
-  const [news, setNews] = useState([]);
-  console.log(news);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const { data } = await api.get('/', {
-          params: {
-            qtd: 12,
-            page: 1,
-          },
-        });
-
-        setNews(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchNews();
+    setIsMobile(verifyIsMobile);
   }, []);
 
+  if (isMobile) {
+    return (
+      <Container>
+        <Menu width="100%" />
+      </Container>
+    );
+  }
   return (
     <Container>
-      <Aside />
+      <Menu />
 
       <div>
         <h1>Find the latest News</h1>
