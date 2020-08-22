@@ -5,7 +5,7 @@ import { isMobile as verifyIsMobile } from '../../utils';
 
 import { Container, ContainerList } from './styles';
 
-const Main = () => {
+const Main: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {

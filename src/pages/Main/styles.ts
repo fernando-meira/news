@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { colors } from '../../themes/styles';
-import backgroundMain from '../../themes/assets/images/backgroundMain.jpg';
 
 export const Container = styled.main`
   height: 100vh;
@@ -63,14 +62,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   /* General sidebar styles */
   .bm-menu {
-    background: ${colors.aside};
     padding: 2.5em 1.5em 0;
+
     font-size: 1.15em;
+    background: ${colors.green};
   }
 
   /* Morph shape necessary with bubble or elastic */
   .bm-morph-shape {
-    fill: ${colors.aside};
+    fill: ${colors.green};
   }
 
   /* Wrapper for item list */
@@ -109,7 +109,7 @@ export const ContainerList = styled.div`
       align-items: center;
       flex-direction: column;
 
-      background: ${colors.aside};
+      background: ${colors.green};
       transition: 0.4s;
 
       :hover {
