@@ -4,21 +4,21 @@ import { colors } from '../../themes/styles';
 
 export const Container = styled.ul`
   width: 90%;
-  margin: 32px auto 0;
+  margin: 64px auto 0;
 `;
 export const ItemList = styled.li`
   width: 100%;
   padding: 10px;
   border-radius: 16px;
+  border: 1px solid ${colors.lightGray};
 
   list-style: none;
-  background: ${colors.white};
 
   img {
     width: 100%;
     height: 50%;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
   }
 
   h1 {

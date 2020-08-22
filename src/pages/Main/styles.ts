@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { bubble as Menu } from 'react-burger-menu';
 
 import { colors } from '../../themes/styles';
 
@@ -7,26 +8,24 @@ export const Container = styled.main`
   position: relative;
 
   display: flex;
-
-  }
-
   /* Position and sizing of burger button */
   .bm-burger-button {
+    top: 12px;
+    left: 12px;
     position: fixed;
+
     width: 36px;
     height: 30px;
-    left: 12px;
-    top: 12px;
   }
 
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: ${colors.white};
+    background: ${colors.baseColor};
   }
 
   /* Color/shape of burger icon bars on hover*/
   .bm-burger-bars-hover {
-    background: ${colors.gray};
+    background: ${colors.baseColor};
   }
 
   /* Position and sizing of clickable cross button */
@@ -45,24 +44,25 @@ Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
   .bm-menu-wrap {
-    position: fixed;
     top: 0%;
     left: 0%;
+    position: fixed;
 
     height: 100%;
   }
 
   /* General sidebar styles */
   .bm-menu {
+    width: 100%;
     padding: 2.5em 1.5em 0;
 
     font-size: 1.15em;
-    background: ${colors.green};
+    background: ${colors.baseColor};
   }
 
   /* Morph shape necessary with bubble or elastic */
   .bm-morph-shape {
-    fill: ${colors.green};
+    fill: ${colors.baseColor};
   }
 
   /* Wrapper for item list */
@@ -79,5 +79,32 @@ Note: Beware of modifying this element as it can break the animations - you shou
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
+  }
+`;
+
+export const MenuBubble = styled(Menu)`
+  a {
+    width: 100%;
+    border: 1px solid ${colors.lightGray};
+
+    text-decoration: none;
+    color: ${colors.fontColor};
+
+    > div {
+      width: 100%;
+      padding: 1rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      svg {
+        margin-right: 16px;
+      }
+    }
+
+    & + a {
+      margin-top: 10px;
+    }
   }
 `;
