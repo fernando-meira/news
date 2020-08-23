@@ -14,6 +14,10 @@ export const ItemList = styled.li`
 
   list-style: none;
 
+  & + li {
+    margin-top: 16px;
+  }
+
   img {
     width: 100%;
     height: 50%;

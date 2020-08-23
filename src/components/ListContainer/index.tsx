@@ -1,17 +1,17 @@
 import React from 'react';
+import { format } from 'date-fns';
 
 import { Container, ItemList } from './styles';
 
 interface ListContainerProps {
   articles: {
     title: string;
+    author?: string;
     urlToImage: string;
   }[];
 }
 
 const ListContainer: React.FC<ListContainerProps> = ({ articles }) => {
-  console.log(articles);
-
   return (
     <Container>
       {articles.map((article, index) => (
@@ -20,11 +20,7 @@ const ListContainer: React.FC<ListContainerProps> = ({ articles }) => {
 
           <h1>{article.title}</h1>
 
-          <div>
-            <span>author</span>
-
-            <p>data</p>
-          </div>
+          <div>{article.author && <span>{article.author}</span>}</div>
         </ItemList>
       ))}
     </Container>

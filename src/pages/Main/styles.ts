@@ -12,7 +12,7 @@ export const Container = styled.main`
   .bm-burger-button {
     top: 12px;
     left: 12px;
-    position: fixed;
+    position: absolute;
 
     width: 36px;
     height: 30px;
@@ -85,11 +85,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 export const MenuBubble = styled(Menu)`
   a {
     width: 100%;
-    border: 1px solid ${colors.lightGray};
+    border-radius: 10px;
 
     text-decoration: none;
-    color: ${colors.fontColor};
-
+    color: ${colors.baseColor};
+    background: ${colors.white};
     > div {
       width: 100%;
       padding: 1rem;
