@@ -32,6 +32,7 @@ const Main: React.FC = () => {
         if (data.status === 'ok') {
           setArticles(data.articles);
           setTotalItems(data.totalResults);
+          console.log(data);
         }
       } catch (error) {
         console.log(error);
