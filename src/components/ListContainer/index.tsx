@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from 'date-fns';
 
 import { Container, ItemList } from './styles';
 
@@ -17,6 +16,7 @@ const ListContainer: React.FC<ListContainerProps> = ({ articles }) => {
     <Container>
       {articles.map((article, index) => (
         <ItemList key={index}>
+          article.urlToImage
           <a href={article.url} target="_blank" rel="noopener noreferrer">
             <img src={article.urlToImage} alt={article.title} />
 

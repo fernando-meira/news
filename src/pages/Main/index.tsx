@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { BiWorld } from 'react-icons/bi';
 import { GiSportMedal } from 'react-icons/gi';
+import { isMobile } from 'react-device-detect';
 import { FaFlag, FaYoutube } from 'react-icons/fa';
 
 import api from '../../services/api';
 
 import { ListContainer } from '../../components';
-import { isMobile as verifyIsMobile } from '../../utils';
 
 import { Container, MenuBubble } from './styles';
 
 const Main: React.FC = () => {
   const [articles, setArticles] = useState([]);
   const [totalItems, setTotalItems] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(verifyIsMobile);
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
