@@ -8,13 +8,17 @@ export const Container = styled.ul`
 `;
 export const ItemList = styled.li`
   width: 100%;
-  height: 300px;
-  padding: 10px;
+  min-height: 200px;
+  max-height: 320px;
   border-radius: 16px;
   border: 1px solid ${colors.lightGray};
 
   transition: 0.4s;
   list-style: none;
+
+  :last-child {
+    margin-bottom: 1rem;
+  }
 
   :hover {
     transform: translateX(10px);
@@ -37,13 +41,14 @@ export const ItemList = styled.li`
     }
 
     > h1 {
+      margin: 0 8px;
       font-size: 16px;
       color: ${colors.darkGray};
     }
 
     > div {
       width: 100%;
-      margin-top: 10px;
+      margin: 10px 8px;
 
       display: flex;
       align-items: center;

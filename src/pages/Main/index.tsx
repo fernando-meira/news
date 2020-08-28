@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { BiWorld } from 'react-icons/bi';
 import { GiSportMedal } from 'react-icons/gi';
 import { isMobile } from 'react-device-detect';
@@ -12,14 +13,17 @@ import { Container, MenuBubble } from './styles';
 
 const Main: React.FC = () => {
   const [articles, setArticles] = useState([]);
+  const key = 'ffe1b6c6fc5c4ea7b644070943b91d6f';
   const [totalItems, setTotalItems] = useState<number>(0);
+  const [bubbleIsOpen, setBubbleIsOpen] = useState(false);
+  console.log(bubbleIsOpen);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await api.get('top-headlines', {
           params: {
-            apiKey: 'ffe1b6c6fc5c4ea7b644070943b91d6f',
+            apiKey: key,
             sources: 'google-news-br',
           },
         });
@@ -27,7 +31,6 @@ const Main: React.FC = () => {
         if (data.status === 'ok') {
           setArticles(data.articles);
           setTotalItems(data.totalResults);
-          console.log(data);
         }
       } catch (error) {
         console.log(error);
@@ -37,23 +40,38 @@ const Main: React.FC = () => {
     fetchData();
   }, []);
 
+  const fetchNews = async (q: string) => {
+    setBubbleIsOpen(!bubbleIsOpen);
+    try {
+      const { data } = await api.get('everything', {
+        params: { apiKey: key, q },
+      });
+
+      if (data.status === 'ok') {
+        setArticles(data.articles);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (isMobile) {
     return (
       <Container>
-        <MenuBubble width="100%">
-          <a href="/brasil">
+        <MenuBubble width="100%" isOpen={bubbleIsOpen}>
+          <Link to="/brasil">
             <div>
               <FaFlag />
               <span>Brasil</span>
             </div>
-          </a>
+          </Link>
 
-          <a href="/mundo">
+          <Link to="/" onClick={() => fetchNews('brasil')}>
             <div>
               <BiWorld />
               <span>Mundo</span>
             </div>
-          </a>
+          </Link>
 
           <a href="/esportes">
             <div>

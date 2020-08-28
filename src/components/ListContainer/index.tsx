@@ -1,5 +1,6 @@
 import React from 'react';
 
+import defaultImage from '../../themes/assets/images/news-default.jpeg';
 import { Container, ItemList } from './styles';
 
 interface ListContainerProps {
@@ -12,13 +13,17 @@ interface ListContainerProps {
 }
 
 const ListContainer: React.FC<ListContainerProps> = ({ articles }) => {
+  console.log(articles);
+
   return (
     <Container>
       {articles.map((article, index) => (
         <ItemList key={index}>
-          article.urlToImage
           <a href={article.url} target="_blank" rel="noopener noreferrer">
-            <img src={article.urlToImage} alt={article.title} />
+            <img
+              src={article.urlToImage ? article.urlToImage : defaultImage}
+              alt={article.title}
+            />
 
             <h1>{article.title}</h1>
 
